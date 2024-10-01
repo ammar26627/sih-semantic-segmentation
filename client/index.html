@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SIH 2024 : 1735</title>
+  <!-- Load Google API script before your main JavaScript module -->
+  <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
+  <!-- <script src="https://apis.google.com/js/api.js" defer></script> -->
+   <script>
+    function init() {
+        gapi.load('auth2', function () {
+          /* Ready. Make a call to gapi.auth2.init or some other API */
+        });
+      }
+   </script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx" defer></script>
+</body>
+
+</html>

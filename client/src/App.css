@@ -1,0 +1,28 @@
+.overlay-high-opacity {
+    opacity: 1;
+}
+
+.overlay-low-opacity {
+    opacity: 0.3;
+}
+
+
+.overlay-high-opacity {
+    opacity: 1;
+}
+
+.overlay-low-opacity {
+    opacity: 0.3;
+}
+
+.selection-dropdowns {
+    left: 25%;
+}
+
+.sidebar {
+    background-color: rgba(255, 255, 255);
+}
+
+body {
+    overflow-y: hidden;
+}
