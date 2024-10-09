@@ -721,9 +721,7 @@ plt.show()
             
 ```
 ## 5. Area and Opacity {#5-area-and-opacity}
-:::
 
-::: {.cell .markdown}
 Users have the option to adjust the opacity of each segmented class,
 enhancing the clarity of visualizing different features. This
 flexibility allows for better differentiation between overlapping areas,
