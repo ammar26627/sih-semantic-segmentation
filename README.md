@@ -45,7 +45,7 @@ are then processed by the ML models to efficiently segment the satellite
 imagery, producing accurate Land Use and Land Cover (LULC)
 classifications.
 
-## 1. Region of Interest (ROI) Selection and Loading Satellite Imagery {#1-region-of-interest-roi-selection-and-loading-satellite-imagery}
+## 1. Region of Interest (ROI) Selection and Loading Satellite Imagery
 
 ![](https://raw.githubusercontent.com/ammar26627/segmentation-client/refs/heads/main/images/ui_1.png)
 
@@ -73,7 +73,7 @@ Nagar, and sampling of features
 
 ![](https://raw.githubusercontent.com/ammar26627/segmentation-client/refs/heads/main/images/ui_5.PNG)
 
-## 2. Feature Sampling for ML Models {#2-feature-sampling-for-ml-models}
+## 2. Feature Sampling for ML Models
 
 Features are sampled from each class to train the machine learning
 models. Here, the following samples are taken.
@@ -111,7 +111,7 @@ refined and precise segmentation results.
 
 ![](https://raw.githubusercontent.com/ammar26627/segmentation-client/refs/heads/main/images/ui_7.PNG)
 
-## 3. Pixel Value Extraction Of Features/Classes {#3-pixel-value-extraction-of-featuresclasses}
+## 3. Pixel Value Extraction Of Features/Classes
 
 Pixel values for all the features or classes are extracted from the
 image using the provided coordinates corresponding to each class or
@@ -120,11 +120,11 @@ sampled data serves as the training input to help the model classify or
 segment the image based on the specified features.
 
 
-## 5. Image Segmentation Using Selected Machine Learning Model {#5-image-segmentation-using-selected-machine-learning-model}
+## 5. Image Segmentation Using Selected Machine Learning Model
 
 This example uses Random Forest Classifier to segement the image.
 
-## 5. Area and Opacity {#5-area-and-opacity}
+## 5. Area and Opacity
 
 Users have the option to adjust the opacity of each segmented class,
 enhancing the clarity of visualizing different features. This
@@ -135,7 +135,7 @@ class.
 
 ![](https://raw.githubusercontent.com/ammar26627/segmentation-client/refs/heads/main/images/opacity.PNG)
 
-## 6. GeoJson/KML Export {#6-geojsonkml-export}
+## 6. GeoJson/KML Export
 
 The application facilitates the export of user-selected features in
 GeoJSON and KML formats, streamlining integration with other GIS tools
@@ -143,7 +143,7 @@ for further analysis and reporting.
 
 ![](https://raw.githubusercontent.com/ammar26627/segmentation-client/refs/heads/main/images/geojson.PNG)
 
-## 7. Conclusion {#7-conclusion}
+## 7. Conclusion
 
 The machine learning (ML) model generates a segmented mask by using
 samples of classes provided by the user as training data. This segmented
