@@ -1,28 +1,5 @@
----
-jupyter:
-  kernelspec:
-    display_name: env
-    language: python
-    name: python3
-  language_info:
-    codemirror_mode:
-      name: ipython
-      version: 3
-    file_extension: .py
-    mimetype: text/x-python
-    name: python
-    nbconvert_exporter: python
-    pygments_lexer: ipython3
-    version: 3.12.4
-  nbformat: 4
-  nbformat_minor: 2
----
-
-::: {.cell .markdown}
 # Sementic Segmentation of Satellite Imagery
-:::
 
-::: {.cell .markdown}
 This software efficiently performs semantic segmentation on satellite
 images to classify various features, utilizing both machine learning
 (ML) and deep learning (DL) techniques.
@@ -47,13 +24,9 @@ additional class samples.
 This approach ensures efficient and precise segmentation, leveraging
 SAM-2's pre-trained capabilities to achieve high accuracy with minimal
 training data.
-:::
 
-::: {.cell .markdown}
 ![](https://raw.githubusercontent.com/ammar26627/segmentation-client/refs/heads/main/images/flowchart.png)
-:::
 
-::: {.cell .markdown vscode="{\"languageId\":\"plaintext\"}"}
 Users can interact with an OGC-certified web-based mapping service
 (Leaflet) to easily select a Region of Interest (ROI) on satellite
 imagery. Additionally, users can define and choose sample points
@@ -71,28 +44,18 @@ This interactive system empowers users to provide precise inputs, which
 are then processed by the ML models to efficiently segment the satellite
 imagery, producing accurate Land Use and Land Cover (LULC)
 classifications.
-:::
 
-::: {.cell .markdown}
 ## 1. Region of Interest (ROI) Selection and Loading Satellite Imagery {#1-region-of-interest-roi-selection-and-loading-satellite-imagery}
-:::
 
-::: {.cell .markdown}
 ![](https://raw.githubusercontent.com/ammar26627/segmentation-client/refs/heads/main/images/ui_1.png)
-:::
 
-::: {.cell .markdown}
 The steps below show selection of region of interest, here Muzaffar
 Nagar, and sampling of features
-:::
 
-::: {.cell .markdown}
 1.  Selection of Region of Interest
     ![](https://raw.githubusercontent.com/ammar26627/segmentation-client/refs/heads/main/images/ui_2.png)
     ![](https://raw.githubusercontent.com/ammar26627/segmentation-client/refs/heads/main/images/ui_3.png)
-:::
 
-::: {.cell .markdown}
 1.  In the advanced tab, users have the option to customize the
     selection of specific bands for more complex segmentation. For
     non-technical users, the default settings are pre-configured to
@@ -103,15 +66,10 @@ Nagar, and sampling of features
     differentiate built-up structures from vegetation and water bodies,
     aiding in more accurate urban area identification.
     ![](https://raw.githubusercontent.com/ammar26627/segmentation-client/refs/heads/main/images/ui_4.png)
-:::
 
-::: {.cell .markdown}
 1.  The image is then retrieved from the Google Earth Engine\'s
     Sentinel-2 database, ensuring high-quality satellite data for
     analysis.
-:::
-
-::: {.cell .code execution_count="1"}
 ``` python
 import ee
 import json
@@ -130,9 +88,7 @@ from sklearn.ensemble import RandomForestClassifier
 # ee.Authenticate() #Authenticated
 ee.Initialize(project='fet-image-segmentation')
 ```
-:::
 
-::: {.cell .code execution_count="16"}
 ``` python
 # app/gee_image.py
 
@@ -182,7 +138,6 @@ class GeeImage():
 
 ```
 
-::: {.output .display_data}
 ```{=html}
 
             <style>
@@ -208,10 +163,8 @@ class GeeImage():
             </style>
             
 ```
-:::
-:::
 
-::: {.cell .code execution_count="17"}
+
 ``` python
 
 
@@ -239,7 +192,6 @@ def preprocess(image_array, is255):
     return img
 ```
 
-::: {.output .display_data}
 ```{=html}
 
             <style>
@@ -265,10 +217,8 @@ def preprocess(image_array, is255):
             </style>
             
 ```
-:::
-:::
 
-::: {.cell .code execution_count="5"}
+
 ``` python
 data = {}
 with open("./assets/roi.json") as f:
@@ -287,7 +237,7 @@ plt.title('Satellite Image')
 plt.show()
 ```
 
-::: {.output .display_data}
+
 ```{=html}
 
             <style>
@@ -313,22 +263,12 @@ plt.show()
             </style>
             
 ```
-:::
 
-::: {.output .display_data}
-![](vertopal_6d4a1de205364c3d906e206ccd1ebb9f/85ffdf80a112fcfed05813557a27065e14e4b282.png)
-:::
-:::
 
-::: {.cell .markdown}
 ![](https://raw.githubusercontent.com/ammar26627/segmentation-client/refs/heads/main/images/ui_5.PNG)
-:::
 
-::: {.cell .markdown}
 ## 2. Feature Sampling for ML Models {#2-feature-sampling-for-ml-models}
-:::
 
-::: {.cell .markdown}
 Features are sampled from each class to train the machine learning
 models. Here, the following samples are taken.
 
@@ -338,15 +278,10 @@ models. Here, the following samples are taken.
 4.  Barren
 :::
 
-::: {.cell .markdown}
 ![](https://raw.githubusercontent.com/ammar26627/segmentation-client/refs/heads/main/images/ui_6.PNG)
-:::
 
-::: {.cell .markdown}
 ## 3. Machine Learning Model Selection and Thresholds Adjustment {#3-machine-learning-model-selection-and-thresholds-adjustment}
-:::
 
-::: {.cell .markdown}
 This software offers four machine learning algorithms and one deep
 learning model:
 
@@ -363,32 +298,22 @@ must effectively address class imbalances, manage overlapping pixels,
 and accurately identify unknown or background regions.
 
 ![](https://raw.githubusercontent.com/ammar26627/segmentation-client/refs/heads/main/images/pixels.png)
-:::
 
-::: {.cell .markdown}
 The most appropriate model can be selected from the Advanced tab, with
 the Mahalanobis Distance Classifier set as the default. For advanced
 operations and segmentation, adjusting the threshold can lead to more
 refined and precise segmentation results.
-:::
 
-::: {.cell .markdown}
 ![](https://raw.githubusercontent.com/ammar26627/segmentation-client/refs/heads/main/images/ui_7.PNG)
-:::
 
-::: {.cell .markdown}
 ## 3. Pixel Value Extraction Of Features/Classes {#3-pixel-value-extraction-of-featuresclasses}
-:::
 
-::: {.cell .markdown}
 Pixel values for all the features or classes are extracted from the
 image using the provided coordinates corresponding to each class or
 feature, which are then used to train the machine learning model. This
 sampled data serves as the training input to help the model classify or
 segment the image based on the specified features.
-:::
 
-::: {.cell .code execution_count="18"}
 ``` python
 
 class ImageMask():
@@ -475,7 +400,6 @@ class ImageMask():
         return [r, g, b]
 ```
 
-::: {.output .display_data}
 ```{=html}
 
             <style>
@@ -501,18 +425,11 @@ class ImageMask():
             </style>
             
 ```
-:::
-:::
 
-::: {.cell .markdown}
 ## 5. Image Segmentation Using Selected Machine Learning Model {#5-image-segmentation-using-selected-machine-learning-model}
-:::
 
-::: {.cell .markdown}
 This example uses Random Forest Classifier to segement the image.
-:::
 
-::: {.cell .code execution_count="19"}
 ``` python
 # app/models.py
 
@@ -645,7 +562,6 @@ class ParallelepipedClassifier:
 
 ```
 
-::: {.output .display_data}
 ```{=html}
 
             <style>
@@ -674,7 +590,6 @@ class ParallelepipedClassifier:
 :::
 :::
 
-::: {.cell .code execution_count="20"}
 ``` python
 class_data = {}
 with open("./assets/class.json") as f:
@@ -685,7 +600,6 @@ mask.setClassData(class_data)
 colored_mask_pngs = mask.getColoredMask()
 ```
 
-::: {.output .display_data}
 ```{=html}
 
             <style>
@@ -711,10 +625,8 @@ colored_mask_pngs = mask.getColoredMask()
             </style>
             
 ```
-:::
-:::
 
-::: {.cell .code execution_count="21"}
+
 ``` python
 fig, axes = plt.subplots(1, len(colored_mask_pngs.keys()), figsize=(10, 5))
 
@@ -731,7 +643,6 @@ plt.tight_layout()
 plt.show()
 ```
 
-::: {.output .display_data}
 ```{=html}
 
             <style>
@@ -757,14 +668,7 @@ plt.show()
             </style>
             
 ```
-:::
 
-::: {.output .display_data}
-![](vertopal_6d4a1de205364c3d906e206ccd1ebb9f/c728d385449262f76a30898915ac1e3e3f3dbe4a.png)
-:::
-:::
-
-::: {.cell .code execution_count="22"}
 ``` python
 fig, axes = plt.subplots(1, 2, figsize=(10, 5))
 
@@ -791,7 +695,6 @@ plt.tight_layout()
 plt.show()
 ```
 
-::: {.output .display_data}
 ```{=html}
 
             <style>
@@ -817,18 +720,6 @@ plt.show()
             </style>
             
 ```
-:::
-
-::: {.output .display_data}
-![](vertopal_6d4a1de205364c3d906e206ccd1ebb9f/ca0c05407d62af6143bde35cd33edd978c08a72d.png)
-:::
-:::
-
-::: {.cell .markdown}
-![](https://raw.githubusercontent.com/ammar26627/segmentation-client/refs/heads/main/images/ui_8.PNG)
-:::
-
-::: {.cell .markdown}
 ## 5. Area and Opacity {#5-area-and-opacity}
 :::
 
@@ -841,25 +732,17 @@ each class. Additionally, users can retrieve the exact area for each
 class.
 
 ![](https://raw.githubusercontent.com/ammar26627/segmentation-client/refs/heads/main/images/opacity.PNG)
-:::
 
-::: {.cell .markdown}
 ## 6. GeoJson/KML Export {#6-geojsonkml-export}
-:::
 
-::: {.cell .markdown}
 The application facilitates the export of user-selected features in
 GeoJSON and KML formats, streamlining integration with other GIS tools
 for further analysis and reporting.
 
 ![](https://raw.githubusercontent.com/ammar26627/segmentation-client/refs/heads/main/images/geojson.PNG)
-:::
 
-::: {.cell .markdown}
 ## 7. Conclusion {#7-conclusion}
-:::
 
-::: {.cell .markdown}
 The machine learning (ML) model generates a segmented mask by using
 samples of classes provided by the user as training data. This segmented
 mask not only serves as the output for the ML model but also plays a
@@ -869,4 +752,3 @@ tasks, uses it to adapt and fine-tune its performance based on the
 specific user requirements. After sufficient fine-tuning, SAM-2 can
 perform segmentation directly, without the need for user-provided class
 samples.
-:::
